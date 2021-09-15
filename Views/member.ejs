@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Want to Join Esam Club?!??!</h1>
+  <h2>Then Put in the right password.....</h2>
+  <h3>(Esambald is true..?123)</h3>
+  <% if (user) {%>
+  <form action='check' method = 'POST'>
+    <label for='password'>Password</label>
+    <input type="password" name='password'/>
+    <button>Gain Access</button>
+  </form>
+  <% } else { %>
+    <h3>Log In First!</h3>
+    <%}%>
+</body>
+</html>

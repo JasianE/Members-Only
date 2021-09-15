@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Members Only</h1>
+  <a href="/sign-up">Sign Up</a>
+  <a href="/member">Want To Be A Member?</a>
+  <% if (user) {%>
+    <% if (user.status !== 'Chump') {%>
+      <a href='/message'>Create Message</a>
+      <a href='/admin'>Become Admin</a>
+    <%}%>
+  <h1> Welcome, <%= user.userName %> </h1>
+  <a href='/log-out'>Log Out</a>
+  <% for (let i = 0; i < messages.length; i++) {%>
+    <h1> <%= messages[i].title %> </h1>
+    <h2> <%= messages[i].text %> </h2>
+    <h3> <%= messages[i].sender %></h3>
+    <h3> <%= messages[i].date %> </h3>
+  <%}%>
+  
+  <% } else { %>
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <button>L2og In</button>
+    </form>
+    <% for (let i = 0; i < messages.length; i++) {%>
+      <h1> <%= messages[i].title %> </h1>
+      <h2> <%= messages[i].text %> </h2>
+    <%}%>
+  <%}%>
+</body>
+</html>
